@@ -1,0 +1,123 @@
+prompts used in redrob
+
+prompt 1
+
+I am solving a hackathon problem where I must normalize resume skills using only Python standard libraries.
+
+Please help me write ONLY a normalize_skills() function.
+
+Requirements:
+input is a comma-separated string
+split on commas
+lowercase each token
+strip whitespace
+apply alias mapping using a provided dictionary
+discard unknown skills
+remove duplicates
+return sorted canonical skills
+
+Do NOT use:
+regex cleanup
+stemming
+stop words
+NLP libraries
+extra preprocessing
+
+Keep the implementation simple and modular.
+
+prompt 2
+
+I already have a normalize_skills() function.
+
+Now help me write a build_vocabulary() function using only Python standard libraries.
+
+Requirements:
+input is a list of normalized resume skill lists
+collect all unique skills
+return alphabetically sorted vocabulary
+maintain consistent ordering for future vector generation
+
+Keep the implementation simple and modular.
+Only provide the function.
+
+prompt 3
+
+I already have:
+normalized resume skill lists
+a shared sorted vocabulary
+
+Now help me implement TF-IDF using only Python standard libraries.
+
+Requirements:
+resumes are already deduplicated
+TF = 1 / total unique skills in resume
+IDF = ln(totalresumes / documentfrequency)
+use math.log
+generate TF-IDF vectors using the shared vocabulary order
+write modular reusable functions
+
+Please provide:
+compute_idf()
+computetfidfvector()
+
+Do not use sklearn, numpy, pandas, or external libraries.
+
+
+prompt 4
+
+I already have:
+normalized resume skills
+TF-IDF vectors
+a shared vocabulary
+
+Now help me build binary vectors for job descriptions using only Python standard libraries.
+
+Requirements:
+normalize JD skills using the same normalize_skills() logic
+use the same vocabulary ordering
+vector value should be:
+  1 if skill exists in JD
+  0 otherwise
+
+Please provide ONLY:
+buildjdvector()
+
+prompt 5
+
+I already have:
+TF-IDF resume vectors
+binary JD vectors
+
+Now help me implement cosine similarity using only Python standard libraries.
+
+Requirements:
+manual dot product
+manual Euclidean magnitude
+avoid division by zero
+return similarity score as float
+
+Provide ONLY:
+cosine_similarity()
+
+prompt 6
+
+I already have:
+- normalized resumes
+- TF-IDF vectors
+- JD binary vectors
+- cosine similarity function
+
+Now help me rank resumes against a JD.
+
+Requirements:
+- compute cosine similarity for every resume
+- store candidate name with score
+- sort descending by score
+- break ties alphabetically by candidate name
+- return top 3 candidates
+- round scores to 2 decimal places
+
+Use only Python standard libraries.
+
+Provide ONLY:
+rank_candidates()

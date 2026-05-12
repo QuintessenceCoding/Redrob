@@ -1,0 +1,39 @@
+Resume Matching Engine — Debug Notes
+
+1. Verified skill normalization carefully
+
+2. Validation Checks Performed
+- Checked normalized outputs manually
+- Verified vocabulary contained:
+  - canonical names only
+  - no noisy tokens
+  - no duplicates
+  - alphabetical ordering
+
+3. TF-IDF Validation
+- Confirmed:
+  TF = 1 / total unique skills
+- Verified IDF values:
+  rare skills had higher IDF
+  common skills like python had lower IDF
+
+4. JD Vector Validation
+- Verified:
+  vocabulary length == JD vector length
+- Confirmed JD vectors contained only 0 and 1
+
+5. Cosine Similarity Validation
+- Checked similarity scores were:
+  - not negative
+  - not greater than 1
+  - logically reasonable
+
+6. Ranking Validation
+- ML candidates ranked highest for ML Engineer JD
+- Backend candidates ranked highest for Backend Engineer JD
+- Frontend candidates ranked highest for Frontend Engineer JD
+
+7. Constraints Followed
+- Used only Python standard libraries
+- No sklearn / numpy / pandas
+- Used modular functions for each pipeline stage
